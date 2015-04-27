@@ -1,5 +1,6 @@
 package com.herokuapp.ezhao.warriors;
 
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +12,11 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ViewPager vpCurrentDay = (ViewPager) findViewById(R.id.vpCurrentDay);
+        ScoreTodayPagerAdapter scoreTodayPagerAdapter = new ScoreTodayPagerAdapter(getSupportFragmentManager());
+        vpCurrentDay.setAdapter(scoreTodayPagerAdapter);
+        vpCurrentDay.setCurrentItem(ScoreTodayPagerAdapter.NUM_ITEMS_BACK);
     }
 
     @Override
